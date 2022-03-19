@@ -19,7 +19,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/transaction',[TransactionController::class, 'index']);
-Route::post('/transaction',[TransactionController::class,'store']);
-Route::get('/transaction/{id}',[TransactionController::class,'show']);
-Route::put('/transaction/{id}',[TransactionController::class,'update']);
+// Route::get('/transaction',[TransactionController::class, 'index']);
+// Route::post('/transaction',[TransactionController::class,'store']);
+// Route::get('/transaction/{id}',[TransactionController::class,'show']);
+// Route::put('/transaction/{id}',[TransactionController::class,'update']);
+// Route::delete('/transaction/{id}',[TransactionController::class,'destroy']);
+// Jika pada saat make controller --resource maka pada route tidak perlu panggil seperti diatas cukup
+Route::resource('/transaction',TransactionController::class)->except('create');
